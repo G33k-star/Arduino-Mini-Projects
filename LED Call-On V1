@@ -1,4 +1,4 @@
-Make a simple LED function. Then, make it so you can call an LED to only blink. (This can be used for troubleshooting)
+//Make a simple LED function. Then, make it so you can call an LED to only blink. (This can be used for troubleshooting)
 
 int Green = 13;
 int Yellow = 12;
