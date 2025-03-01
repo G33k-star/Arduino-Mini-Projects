@@ -1,0 +1,72 @@
+Make a simple LED function. Then, make it so you can call an LED to only blink. (This can be used for troubleshooting)
+
+int Green = 13;
+int Yellow = 12;
+int Orange = 11;
+int Blue = 10;
+int Red = 9;
+int White = 8;
+  
+void setup(){
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+}
+  
+  
+void loop(){
+}
+
+
+
+
+void green(){
+ digitalWrite(Green,HIGH);
+ delay(1000);
+ digitalWrite(Green,LOW);
+ delay(1000);
+}
+
+
+
+void yellow(){
+ digitalWrite(Yellow,HIGH); 
+ delay(1000);
+ digitalWrite(Yellow,LOW);
+ delay(1000);
+}
+
+
+
+void orange(){
+ digitalWrite(Orange,HIGH);
+ delay(1000);
+ digitalWrite(Orange,LOW);
+ delay(1000);
+}
+
+
+
+void blue(){
+ digitalWrite(Blue,HIGH);
+ delay(1000);
+ digitalWrite(Blue,LOW);
+ delay(1000);
+}
+
+
+
+void red(){
+ digitalWrite(Red,HIGH); 
+ delay(1000);
+ digitalWrite(Red,LOW);
+ delay(1000);
+}
+
+
+
+void white(){
+ digitalWrite(White,HIGH);
+ delay(1000);
+ digitalWrite(White,LOW);
+ delay(1000);
+}
