@@ -1,0 +1,172 @@
+int cycle=1;
+int Green = 13;
+int Yellow = 12;
+int Orange = 11;
+int Blue = 8;
+int Red = 9;
+int White = 10;
+int Buttonpin = 7;
+int ButtonState = 0;
+bool active = true;
+
+
+void setup() {
+  Serial.begin(9600); 
+  
+  pinMode(Green, OUTPUT);
+  pinMode(Yellow, OUTPUT);
+  pinMode(Orange, OUTPUT);
+  pinMode(Blue, OUTPUT);
+  pinMode(Red, OUTPUT);
+  pinMode(White, OUTPUT);
+  pinMode(Buttonpin, INPUT);
+  
+  menu();
+}
+
+void menu() {
+  Serial.println("Press Button...");
+}
+
+void blue(){
+  Serial.println("Blue ACTIVE");
+        digitalWrite(Blue, HIGH);
+        	delay(125);
+        digitalWrite(Blue, LOW);
+        	delay(200);
+        digitalWrite(Blue, HIGH);
+        	delay(125);
+        digitalWrite(Blue, LOW);
+        	delay(200);
+        digitalWrite(Blue, HIGH);
+        	delay(125);
+        digitalWrite(Blue, LOW);
+        	delay(1000);
+}
+    
+void red(){
+      Serial.println("Red ACTIVE");
+        digitalWrite(Red, HIGH);
+        	delay(125);
+        digitalWrite(Red, LOW);
+        	delay(200);
+        digitalWrite(Red, HIGH);
+        	delay(125);
+        digitalWrite(Red, LOW);
+        	delay(200);
+        digitalWrite(Red, HIGH);
+        	delay(125);
+        digitalWrite(Red, LOW);
+        	delay(1000);
+}
+
+void white(){
+  Serial.println("White ACTIVE");
+        digitalWrite(White, HIGH);
+          delay(125);
+        digitalWrite(White, LOW);
+          delay(200);
+        digitalWrite(White, HIGH);
+          delay(125);
+        digitalWrite(White, LOW);
+          delay(200);
+        digitalWrite(White, HIGH);
+          delay(125);
+        digitalWrite(White, LOW);
+          delay(1000);
+}
+        
+void green(){
+      Serial.println("Green ACTIVE");
+        digitalWrite(Green, HIGH);
+          delay(125);
+        digitalWrite(Green, LOW);
+          delay(200);
+        digitalWrite(Green, HIGH);
+          delay(125);
+        digitalWrite(Green, LOW);
+          delay(200);
+        digitalWrite(Green, HIGH);
+          delay(125);
+        digitalWrite(Green, LOW);
+          delay(1000);
+}
+
+void yellow(){
+  Serial.println("Yellow ACTIVE");
+        digitalWrite(Yellow, HIGH);
+          delay(125);
+        digitalWrite(Yellow, LOW);
+          delay(200);
+        digitalWrite(Yellow, HIGH);
+          delay(125);
+        digitalWrite(Yellow, LOW);
+          delay(200);
+        digitalWrite(Yellow, HIGH);
+          delay(125);
+        digitalWrite(Yellow, LOW);
+          delay(1000);
+}
+
+void orange(){
+      Serial.println("Orange ACTIVE");
+        digitalWrite(Orange, HIGH);
+          delay(125);
+        digitalWrite(Orange, LOW);
+          delay(200);
+        digitalWrite(Orange, HIGH);
+          delay(125);
+        digitalWrite(Orange, LOW);
+          delay(200);
+        digitalWrite(Orange, HIGH);
+          delay(125);
+        digitalWrite(Orange, LOW);
+          delay(1000);
+}
+
+
+void color(int cycle){
+	switch (cycle) {
+      case 1:
+        blue();
+        break;
+
+      case 2:
+        red();
+        break;
+
+      case 3:
+        white();
+        break;
+
+      case 4:
+        green();
+        break;
+
+      case 5:
+        yellow();
+        break;
+
+      case 6:
+        orange();
+      	break;
+      
+      default:
+      active = false;
+      
+	}
+}
+
+             
+void loop(){     
+  ButtonState = digitalRead(Buttonpin);
+  if (ButtonState == HIGH && active){
+      color(cycle);
+      cycle=cycle+1;
+    } 
+  
+  if(!active && cycle>6){
+    active = true;
+    cycle=1;
+  }
+ }
