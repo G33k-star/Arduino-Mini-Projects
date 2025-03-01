@@ -1,0 +1,97 @@
+Same idea as Mini Project #1, but adding Switch Case statements to the code. This code consists of a menu and blinking functions.
+
+int choice;
+int Green = 13;
+int Yellow = 12;
+int Orange = 11;
+int Blue = 10;
+int Red = 9;
+int White = 8;
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(Green, OUTPUT);
+  pinMode(Yellow, OUTPUT);
+  pinMode(Orange, OUTPUT);
+  pinMode(Blue, OUTPUT);
+  pinMode(Red, OUTPUT);
+  pinMode(White, OUTPUT);
+  
+  Serial.begin(9600); 
+}
+
+void menu() {
+  Serial.println("\nChoose an LED to activate:");
+  Serial.println("1. Green");
+  Serial.println("2. Yellow");
+  Serial.println("3. Orange");
+  Serial.println("4. Blue");
+  Serial.println("5. Red");
+  Serial.println("6. White");
+}
+
+void loop() {
+  
+  
+  menu();
+  
+  while (Serial.available() == 0) {
+   
+  }
+  
+  choice = Serial.parseInt();
+  
+  switch (choice) {
+    case 1:
+      Serial.println("Green ACTIVE");
+      digitalWrite(Green, HIGH);
+      delay(1000);
+      digitalWrite(Green, LOW);
+      delay(1000);
+      break;
+
+    case 2:
+      Serial.println("Yellow ACTIVE");
+      digitalWrite(Yellow, HIGH);
+      delay(1000);
+      digitalWrite(Yellow, LOW);
+      delay(1000);
+      break;
+
+    case 3:
+      Serial.println("Orange ACTIVE");
+      digitalWrite(Orange, HIGH);
+      delay(1000);
+      digitalWrite(Orange, LOW);
+      delay(1000);
+      break;
+
+    case 4:
+      Serial.println("Blue ACTIVE");
+      digitalWrite(Blue, HIGH);
+      delay(1000);
+      digitalWrite(Blue, LOW);
+      delay(1000);
+      break;
+
+    case 5:
+      Serial.println("Red ACTIVE");
+      digitalWrite(Red, HIGH);
+      delay(1000);
+      digitalWrite(Red, LOW);
+      delay(1000);
+      break;
+
+    case 6:
+      Serial.println("White ACTIVE");
+      digitalWrite(White, HIGH);
+      delay(1000);
+      digitalWrite(White, LOW);
+      delay(1000);
+      break;
+
+    default:
+      Serial.println("\n Invalid choice. Please select a number between 1 and 6.");
+      break;
+  }
+}
