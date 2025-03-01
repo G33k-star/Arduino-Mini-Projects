@@ -1,3 +1,5 @@
+//Version 2 is the same as Version 1, but with multiple case statements with a loop.
+
 int cycle=1;
 int Green = 13;
 int Yellow = 12;
