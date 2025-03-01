@@ -1,3 +1,5 @@
+//This code consists of blinking functions at a certain pattern. Almost as like you’re troubleshooting. 
+
 int choice;
 int Green = 13;
 int Yellow = 12;
