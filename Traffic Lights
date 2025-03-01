@@ -1,0 +1,163 @@
+// The objective is to put all what you learned into this starter project. You are to make a Traffic Light system as if it were in an intersection.
+// You’re going to use 2 buttons, 2 traffic lights. If one light turns green, the other turns red (vice versa)
+
+int Red1 = 13;
+int Yellow1 = 12;
+int Green1 = 11;
+int Red2 = 10;
+int Yellow2 = 9;
+int Green2 = 8;
+int Buttonpin1 = 7;
+int Buttonpin2 = 6;
+int ButtonState1 = 0;
+int ButtonState2 = 0;
+
+void setup(){
+	pinMode (Red1,OUTPUT);
+	pinMode (Yellow1,OUTPUT);
+	pinMode (Green1,OUTPUT);
+	pinMode (Red2,OUTPUT);
+	pinMode (Yellow2,OUTPUT);
+	pinMode (Green2,OUTPUT);
+  	pinMode (Buttonpin1, INPUT);
+    pinMode (Buttonpin2, INPUT);
+    
+}
+
+void cycle1(){
+  
+  	
+  	digitalWrite(Green2,LOW);
+  	digitalWrite(Yellow2, HIGH);
+  	delay(3000);
+  	digitalWrite(Yellow2, LOW);
+  	digitalWrite(Red1,LOW);
+  	digitalWrite(Red2,HIGH);
+  	digitalWrite(Green1, HIGH);
+  	delay(6000);
+}
+
+
+
+void cycle2(){
+  
+  	
+  	digitalWrite(Green1,LOW);
+  	digitalWrite(Yellow1, HIGH);
+  	delay(3000);
+  	digitalWrite(Yellow1, LOW);
+  	digitalWrite(Red2,LOW);
+  	digitalWrite(Red1,HIGH);
+ 	digitalWrite(Green2, HIGH);
+  	delay(6000);
+}
+
+void cycle3(){
+  
+    digitalWrite(Red1,LOW);
+    digitalWrite(Red2, HIGH);
+    digitalWrite(Yellow2, HIGH);
+    digitalWrite(Green2, HIGH);
+    delay(200);
+    digitalWrite(Red2, LOW); 
+    digitalWrite(Yellow2, LOW);
+    digitalWrite(Green2, LOW);
+    delay(100);
+    digitalWrite(Red2, HIGH);
+    digitalWrite(Yellow2, HIGH);
+    digitalWrite(Green2, HIGH);
+    delay(200);
+    digitalWrite(Red2, LOW); 
+    digitalWrite(Yellow2, LOW);
+    digitalWrite(Green2, LOW);
+    delay(100);
+    digitalWrite(Red2, HIGH);
+    digitalWrite(Yellow2, HIGH);
+    digitalWrite(Green2, HIGH);
+    delay(200);
+    digitalWrite(Red2, LOW); 
+    digitalWrite(Yellow2, LOW);
+    digitalWrite(Green2, LOW);
+    delay(100);
+    digitalWrite(Red2, HIGH);
+    digitalWrite(Yellow2, HIGH);
+    digitalWrite(Green2, HIGH);
+    delay(200);
+    digitalWrite(Red2, LOW); 
+    digitalWrite(Yellow2, LOW);
+    digitalWrite(Green2, LOW);
+    delay(100);
+    digitalWrite(Green2,LOW);
+    digitalWrite(Yellow2, HIGH);
+    delay(3000);
+    digitalWrite(Yellow2, LOW);
+    digitalWrite(Red1,LOW);
+    digitalWrite(Red2,HIGH);
+    digitalWrite(Green1, HIGH);
+    delay(3000);
+}
+
+void cycle4(){
+  
+    digitalWrite(Red2, LOW);
+    digitalWrite(Red1, HIGH);
+    digitalWrite(Yellow1, HIGH);
+    digitalWrite(Green1, HIGH);
+    delay(200);
+    digitalWrite(Red1, LOW); 
+    digitalWrite(Yellow1, LOW);
+    digitalWrite(Green1, LOW);
+    delay(100);
+    digitalWrite(Red1, HIGH);
+    digitalWrite(Yellow1, HIGH);
+    digitalWrite(Green1, HIGH);
+    delay(200);
+    digitalWrite(Red1, LOW); 
+    digitalWrite(Yellow1, LOW);
+    digitalWrite(Green1, LOW);
+    delay(100);
+    digitalWrite(Red1, HIGH);
+    digitalWrite(Yellow1, HIGH);
+    digitalWrite(Green1, HIGH);
+    delay(200);
+    digitalWrite(Red1, LOW); 
+    digitalWrite(Yellow1, LOW);
+    digitalWrite(Green1, LOW);
+    delay(100);
+    digitalWrite(Red1, HIGH);
+    digitalWrite(Yellow1, HIGH);
+    digitalWrite(Green1, HIGH);
+    delay(200);
+    digitalWrite(Red1, LOW); 
+    digitalWrite(Yellow1, LOW);
+    digitalWrite(Green1, LOW);
+    delay(100);
+    digitalWrite(Green1,LOW);
+    digitalWrite(Yellow1, HIGH);
+    delay(3000);
+    digitalWrite(Yellow1, LOW);
+    digitalWrite(Red2,LOW);
+    digitalWrite(Red1,HIGH);
+    digitalWrite(Green2, HIGH);
+    delay(3000);
+}
+
+void loop(){
+	
+  ButtonState1 = digitalRead(Buttonpin1);
+	if (ButtonState1 == HIGH){	
+      cycle3();
+  	}
+  	else{
+      cycle1();
+  	}
+  
+  ButtonState2 = digitalRead(Buttonpin2);
+  if (ButtonState2 == HIGH){
+      cycle4();
+  } 
+  else{
+      cycle2();
+  }
+ 
+}
