@@ -1,3 +1,5 @@
+//Same as V2, however each LED color is a function.
+
 int cycle=1;
 int Green = 13;
 int Yellow = 12;
