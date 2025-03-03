@@ -1,5 +1,4 @@
 //Using what you learned, you are to make a simple police lights (red and blue) in various patterns. Get creative and maybe add a buzzer.
-
 #define RED1 9
 #define RED2 8
 #define RED3 7
@@ -12,6 +11,7 @@
 #define Buttonpin2 4
 #define Buttonpin3 3
 #define Buzzer 2
+int pattern=0;
 
 void setup() {
   pinMode(RED1, OUTPUT);
@@ -25,10 +25,10 @@ void setup() {
   pinMode(Buttonpin1, INPUT);
   pinMode(Buttonpin2, INPUT);
   pinMode(Buttonpin3, INPUT);
+  pinMode(Buzzer, OUTPUT);
 }
 
 void pattern1() {
-  for (int i = 0; i < 5; i++){
   digitalWrite(BLUE1, HIGH);
   digitalWrite(BLUE2, HIGH);
   digitalWrite(BLUE3, HIGH);
@@ -49,11 +49,10 @@ void pattern1() {
   digitalWrite(RED3, LOW);
   digitalWrite(RED4, LOW);
   delay(250);
-  }
+  
 }
 
 void pattern2() {
-  for (int i = 0; i < 5; i++) {
     digitalWrite(BLUE1, HIGH);
     digitalWrite(BLUE2, HIGH);
     digitalWrite(BLUE3, HIGH);
@@ -74,33 +73,65 @@ void pattern2() {
     digitalWrite(RED3, LOW);
     digitalWrite(RED4, LOW);
     delay(100);
-  }
+  
 }
 
-void pattern3() {
-  for (int i = 0; i < 5; i++) {
-    digitalWrite(BLUE1, HIGH);
-    digitalWrite(BLUE2, HIGH);
-    digitalWrite(BLUE3, HIGH);
-    digitalWrite(BLUE4, HIGH);
+void pattern3(){
+   digitalWrite(BLUE1, HIGH);
+   digitalWrite(BLUE2, HIGH);
+   digitalWrite(BLUE3, HIGH);
+   digitalWrite(BLUE4, HIGH);
     delay(100);
-    digitalWrite(BLUE1, LOW);
-    digitalWrite(BLUE2, LOW);
-    digitalWrite(BLUE3, LOW);
-    digitalWrite(BLUE4, LOW);
+   digitalWrite(BLUE1, LOW);
+   digitalWrite(BLUE2, LOW);
+   digitalWrite(BLUE3, LOW);
+   digitalWrite(BLUE4, LOW);
     delay(100);
-    digitalWrite(RED1, HIGH);
-    digitalWrite(RED2, HIGH);
-    digitalWrite(RED3, HIGH);
-    digitalWrite(RED4, HIGH);
+   digitalWrite(BLUE1, HIGH);
+   digitalWrite(BLUE2, HIGH);
+   digitalWrite(BLUE3, HIGH);
+   digitalWrite(BLUE4, HIGH);
     delay(100);
-    digitalWrite(RED1, LOW);
-    digitalWrite(RED2, LOW);
-    digitalWrite(RED3, LOW);
-    digitalWrite(RED4, LOW);
+   digitalWrite(BLUE1, LOW);
+   digitalWrite(BLUE2, LOW);
+   digitalWrite(BLUE3, LOW);
+   digitalWrite(BLUE4, LOW);
     delay(100);
-  }
+   digitalWrite(RED1, HIGH);
+   digitalWrite(RED2, HIGH);
+   digitalWrite(RED3, HIGH);
+   digitalWrite(RED4, HIGH);
+    delay(100);
+   digitalWrite(RED1, LOW);
+   digitalWrite(RED2, LOW);
+   digitalWrite(RED3, LOW);
+   digitalWrite(RED4, LOW);
+  	delay(100);
+   digitalWrite(RED1, HIGH);
+   digitalWrite(RED2, HIGH);
+   digitalWrite(RED3, HIGH);
+   digitalWrite(RED4, HIGH);
+    delay(100);
+   digitalWrite(RED1, LOW);
+   digitalWrite(RED2, LOW);
+   digitalWrite(RED3, LOW);
+   digitalWrite(RED4, LOW);
+  	delay(100);
 }
+
+void off(){
+  digitalWrite(BLUE1, LOW);
+  digitalWrite(BLUE2, LOW);
+  digitalWrite(BLUE3, LOW);
+  digitalWrite(BLUE4, LOW);
+  digitalWrite(RED1, LOW);
+  digitalWrite(RED2, LOW);
+  digitalWrite(RED3, LOW);
+  digitalWrite(RED4, LOW);
+}
+
+
+  
 
 void loop() {
   int ButtonState1 = digitalRead(Buttonpin1);
@@ -108,19 +139,27 @@ void loop() {
   int ButtonState3 = digitalRead(Buttonpin3);
 
   if (ButtonState1 == HIGH) {
-    pattern1();
+    pattern = 1;
   }
   if (ButtonState2 == HIGH) {
-    pattern2();
+    pattern = 2;
   }
   if (ButtonState3 == HIGH) {
-    pattern3();
+    pattern = 3;
   }
   
-  delay(50);
+  switch(pattern){
+  case 1: 
+    pattern1();
+   break;
+  case 2: 
+    pattern2();
+   break;
+  case 3:
+    pattern3();
+   break;
+   case 4:
+    off();
 }
-
-
-//Different cycles of patterns and sounds
-//Figure out how to keep a button on until I push again
-//or new button is pressed
+ 
+}
