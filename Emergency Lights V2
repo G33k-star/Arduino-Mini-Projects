@@ -1,0 +1,161 @@
+#define Buttonpin1 5
+#define Buttonpin2 4
+#define Buttonpin3 3
+#define Buttonpin4 2
+int pattern=0;
+int RED1 = 9;
+int RED2 =  8;
+int RED3 = 7;
+int RED4 = 6;
+int BLUE1 = 13;
+int BLUE2 = 12;
+int BLUE3 = 11;
+int BLUE4 = 10;
+const int blue_LED_count = 4;
+const int red_LED_count = 4;
+int Blue[blue_LED_count]={BLUE1, BLUE2, BLUE3, BLUE4};
+int Red[red_LED_count]={RED1, RED2, RED3, RED4};
+
+
+
+void setup() {
+  
+  for(int i = 0;i<red_LED_count;i++){
+    pinMode(Red[i], OUTPUT);
+  }
+  
+  for(int i = 0; i<blue_LED_count;i++){
+  	pinMode(Blue[i],OUTPUT);
+  }
+  pinMode(Buttonpin1, INPUT);
+  pinMode(Buttonpin2, INPUT);
+  pinMode(Buttonpin3, INPUT);
+}
+
+void pattern1() {
+  for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],HIGH); 
+  }  
+   delay(250);  
+  for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],LOW); 
+  }  
+   delay(250);  
+  for(int i = 0;i<red_LED_count;i++){
+    digitalWrite(Red[i],HIGH);
+  }  
+   delay(250);
+  
+  for(int i = 0; i<red_LED_count;i++){
+  	digitalWrite(Red[i],LOW); 
+  }
+  delay(250);
+  
+}
+
+void pattern2() {
+   for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],HIGH); 
+  }
+    delay(100);
+  
+   for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],LOW); 
+  }
+    delay(100);
+  
+     for(int i = 0;i<red_LED_count;i++){
+    digitalWrite(Red[i],HIGH);
+  }
+    delay(100);
+  
+    for(int i = 0; i<red_LED_count;i++){
+  	digitalWrite(Red[i],LOW); 
+  }
+    delay(100);
+  
+}
+
+void pattern3(){
+  for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],HIGH); 
+  }
+    delay(100);
+   for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],LOW); 
+  }
+    delay(100);
+   for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],HIGH); 
+  }
+    delay(100);
+   for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Blue[i],LOW); 
+  }
+    delay(100);
+  for(int i = 0; i<blue_LED_count;i++){
+  	digitalWrite(Red[i],HIGH); 
+  }
+    delay(100);
+   for(int i = 0; i<red_LED_count;i++){
+  	digitalWrite(Red[i],LOW); 
+  }
+  	delay(100);
+   for(int i = 0;i<red_LED_count;i++){
+    digitalWrite(Red[i],HIGH);
+  }
+    delay(100);
+   for(int i = 0; i<red_LED_count;i++){
+  	digitalWrite(Red[i],LOW); 
+  }
+}
+
+void off(){
+  digitalWrite(BLUE1, LOW);
+  digitalWrite(BLUE2, LOW);
+  digitalWrite(BLUE3, LOW);
+  digitalWrite(BLUE4, LOW);
+  digitalWrite(RED1, LOW);
+  digitalWrite(RED2, LOW);
+  digitalWrite(RED3, LOW);
+  digitalWrite(RED4, LOW);
+}
+
+
+  
+
+void loop() {
+  int ButtonState1 = digitalRead(Buttonpin1);
+  int ButtonState2 = digitalRead(Buttonpin2);
+  int ButtonState3 = digitalRead(Buttonpin3);
+  int ButtonState4 = digitalRead(Buttonpin4);
+
+  if (ButtonState1 == HIGH) {
+    pattern = 1;
+  }
+  if (ButtonState2 == HIGH) {
+    pattern = 2;
+  }
+  if (ButtonState3 == HIGH) {
+    pattern = 3;
+  }
+  if (ButtonState4 == HIGH) {
+    pattern = 4;
+  }
+  
+  switch(pattern){
+  case 1: 
+    pattern1();
+   break;
+  case 2: 
+    pattern2();
+   break;
+  case 3:
+    pattern3();
+   break;
+   case 4:
+    off();
+}
+  
+  
+}
