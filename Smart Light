@@ -1,3 +1,5 @@
+//To simulate a smart light with a IR Remote.
+
 #include <IRremote.hpp> 
 const int RECV_PIN = 11;    // Pin connected to IR Receiver OUT
 int redled = 7;
